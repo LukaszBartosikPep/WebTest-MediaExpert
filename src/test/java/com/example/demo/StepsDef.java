@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class StepsDef {
@@ -33,31 +34,40 @@ public class StepsDef {
         boolean credentialsResCorre=testing.testLogin(name,password);
         assertTrue(credentialsResCorre);
     }
-    @When("I give incorrect credentials")
+    @Given("I give incorrect credentials")
     public void i_give_incorrect_credentials() {
         name="standard_admin";
         password="secret_soup";
     }
     @Then("Result is false")
     public void result_is_false() {
+        testing=new Testing();
         // Write code here that turns the phrase above into concrete actions
         boolean credentialsResCorre=testing.testLogin(name,password);
-        assertTrue(credentialsResCorre);
+        assertFalse(credentialsResCorre);
     }
-    @Given("I click on add")
-    public void i_click_add() {
+    @Given("I log in")
+    public void i_log_in() {
 
+
+//        testing.testLogin("standard_user","secret_sauce");
+//        // Write code here that turns the phrase above into concrete actions
+//        testing.testAddProd();
+//        testing.testLogin()
         testing=new Testing();
         testing.testLogin("standard_user","secret_sauce");
-        // Write code here that turns the phrase above into concrete actions
-        testing.tesAddProd();
     }
 
-    @Then("The button changed to Remove")
-    public void the_button_changed_to_remove() {
+    @Then("The cart contains")
+    public void The_cart_contains() {
         // Write code here that turns the phrase above into concrete actions
-        String buttonText= testing.tesAddProd();
-        Assert.assertEquals(buttonText, "Remove");
+//        String buttonText= testing.testAddProd();
+
+//        testing.testAddProd();
+
+        boolean notEmpty=testing.testAddProd("add-to-cart-sauce-labs-backpack",
+                "Sauce Labs Backpack");
+        assertTrue(notEmpty);
     }
 
 

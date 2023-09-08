@@ -1,11 +1,13 @@
 Feature: Test login
-  Scenario: Testing login in
+  Scenario: Testing login correct
     Given I test login form
     When I give correct credentials
     Then Result is true
-    When I give incorrect credentials
+  Scenario: Testing login incorrect
+      Given I give incorrect credentials
+
     Then Result is false
   Scenario: Check if product added
-    Given I click on add
+    Given I log in
 
-    Then The button changed to Remove
+    Then The cart contains
