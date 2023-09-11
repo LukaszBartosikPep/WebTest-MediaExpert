@@ -22,11 +22,7 @@ public class General {
     }
 
 
-    public void setupByName(By nameSelector, String name){
-        driver.findElement(nameSelector).sendKeys(name);
 
-
-    }
     public void setupField(By valueSelector, String value){
         driver.findElement(valueSelector).sendKeys(value);
 

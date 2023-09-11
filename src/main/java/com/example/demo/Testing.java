@@ -3,18 +3,19 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 //@Controller
 //@ResponseBody
-@Controller
-@ResponseBody
+@Component
 public class Testing{
 
+//    user name jako pole
     private static final String CORRECT_USERNAME = "standard_user";
-    private static final String CORRECT_PASSWORD = "secret_sauce";
+    private static final String CORRECT_PASSWORD = "secret_sauce";  //Pliki konfiguracyjne np text file przynajmniej
     private WebDriver driver;
     public Testing(){
         System.setProperty("webdriver.ie.driver", "C:/Users/lbartosik/OneDrive - PEPCO/Pulpit/IEDriverServer.exe");
@@ -27,7 +28,7 @@ public class Testing{
 //
 //    }
 
-    @GetMapping("/test")
+//    @GetMapping("/test")
     public boolean testLogin(String name, String password) {
 //        System.setProperty("webdriver.ie.driver", "C:/Users/lbartosik/OneDrive - PEPCO/Pulpit/IEDriverServer.exe");
 //        this.driver = new InternetExplorerDriver();
@@ -38,27 +39,27 @@ public class Testing{
         driver.findElement(By.id("login-button")).click();
         return CORRECT_USERNAME.equals(name) && CORRECT_PASSWORD.equals(password);
     }
-    @GetMapping("/prod")
-    public boolean testAddProd(String idprodname, String prodname){
-//        System.setProperty("webdriver.ie.driver", "C:/Users/lbartosik/OneDrive - PEPCO/Pulpit/IEDriverServer.exe");
-//        this.driver = new InternetExplorerDriver();
-//        driver.get("https://www.saucedemo.com/");
-
-//        driver.findElement(By.id("user-name")).sendKeys("standard_user");
-//        driver.findElement(By.id("password")).sendKeys("secret_sauce");
-//        driver.findElement(By.id("login-button")).click();
-        driver.findElement(By.id(idprodname)).click();
-        driver.findElement(By.className("shopping_cart_link")).click();
-
-       WebElement cart= driver.findElement(By.className("inventory_item_name"));
-       String cartText= cart.getText();
-       return prodname.equals(cartText);
-
-        //If the cart is 'Remove" than return true
-
-
-
-
-    }
+//    @GetMapping("/prod")
+//    public boolean testAddProd(String idprodname, String prodname){
+////        System.setProperty("webdriver.ie.driver", "C:/Users/lbartosik/OneDrive - PEPCO/Pulpit/IEDriverServer.exe");
+////        this.driver = new InternetExplorerDriver();
+////        driver.get("https://www.saucedemo.com/");
+//
+////        driver.findElement(By.id("user-name")).sendKeys("standard_user");
+////        driver.findElement(By.id("password")).sendKeys("secret_sauce");
+////        driver.findElement(By.id("login-button")).click();
+//        driver.findElement(By.id(idprodname)).click();
+//        driver.findElement(By.className("shopping_cart_link")).click();
+//
+//       WebElement cart= driver.findElement(By.className("inventory_item_name"));
+//       String cartText= cart.getText();
+//       return prodname.equals(cartText);
+//
+//        //If the cart is 'Remove" than return true
+//
+//
+//
+//
+//    }
 
 }
