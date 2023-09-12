@@ -35,7 +35,7 @@ public class General {
         driver.findElement(selector).click();
     }
     public String currentURL(){
-        String currentAddress=driver.getCurrentUrl();
-        return currentAddress;
+
+        return driver.getCurrentUrl(); //lepiej bez zmiennej
     }
 }
