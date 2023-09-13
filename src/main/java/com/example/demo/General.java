@@ -31,6 +31,11 @@ public class General {
       WebElement  TextValue= driver.findElement(retSelector);
       return TextValue.getText();
     }
+    public int retrieveNumber(By retIntSelector){
+        WebElement  TextValue= driver.findElement(retIntSelector);
+        int number=Integer.parseInt(TextValue.getText());
+        return number;
+    }
     public void clickBySelector(By selector){
         driver.findElement(selector).click();
     }

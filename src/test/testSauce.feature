@@ -18,3 +18,8 @@
     Scenario: Testing login
       Given I open login form
       When I give credentials
+
+    Scenario: Testing product add
+      Given I test adding product
+      When I add product
+      Then Product must be in cart

@@ -5,10 +5,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TestingLogin extends General{
-    public static final By LoginNameSelector =By.id("user-name");
-    public static final By PasswordSelector=By.id("password");
+    public static final By LoginNameSelector= By.id("user-name");
+    public static final By PasswordSelector= By.id("password");
 
-    public static final By ButtonSelector =By.id("login-button");
+    public static final By ButtonSelectorLogin = By.id("login-button");
+    public static final By TextValue=By.className("app_logo");
+
 
 
 
@@ -16,25 +18,32 @@ public class TestingLogin extends General{
 //    private static final String PASSWORD = "secret_sauce";
 
 
-    public void openPage(String url){
-        super.openPage(url);
-    }
+//    public void openPage(String url){  //No sense
+//        super.openPage(url);
+//    }
     public void Name(String NAME) {
         super.setupField(LoginNameSelector, NAME);
     }
-
+//
     public void Password(String PASSWORD) {
         super.setupField(PasswordSelector, PASSWORD);
     }
-    public void click() {
-        super.clickBySelector(ButtonSelector);
+    public void clickLoginButton() {
+        super.clickBySelector(ButtonSelectorLogin);
 
     }
-    public String currentAddr(){
-            String resultURL=currentURL();
-            return resultURL;
 
+    public String retrieveText(){
+
+        String text=retrieveText(TextValue);
+        return text;
     }
+
+//    public String currentAddr(){ //No sense
+//            String resultURL=currentURL();
+//            return resultURL;
+//
+//    }
 
     }
 

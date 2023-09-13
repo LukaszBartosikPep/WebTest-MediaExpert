@@ -20,18 +20,21 @@ public class TxtInfo {
 
 //    private static final Logger logger = LoggerFactory.getLogger(TxtInfo.class);
 
-    public List<LoginAccess> ReturnAccessList(int i) {
+    public List<LoginAccess> ReturnAccessList() {
 
 
 //        logger.info("set");
 
         try {
-            FileInputStream fis = new FileInputStream("src/main/resources/data.txt");
+//            String pathData=System.getProperty("PATH");
+            FileInputStream fis = new FileInputStream("src/test/java/com/example/demo/data.txt"); //Sciezka podawana przez konfiguracje
+            //Tak jakby przez konsole, podawanie argumentów do Javy przez konsole?
             data = IOUtils.toString(fis, "UTF-8");
 
+            fis.close();
 
             String[] loginArray = data.split(",");
-            for (i = 0; i < loginArray.length; i += 2) {
+            for (int i = 0; i < loginArray.length; i += 2) {
                 String username = loginArray[i].trim();
                 String password = loginArray[i + 1].trim();
                 LoginAccess loginAccess = new LoginAccess(username, password);
