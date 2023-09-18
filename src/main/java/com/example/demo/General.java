@@ -2,22 +2,20 @@ package com.example.demo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 
-
-@Component
 public class General {
+
+
     public WebDriver driver;
-    public General(){
-        System.setProperty("webdriver.ie.driver", "C:/Users/lbartosik/OneDrive - PEPCO/Pulpit/IEDriverServer.exe");
-        this.driver = new InternetExplorerDriver();
+    public General (){
+        System.setProperty("webdriver.chrome.driver", "C:/Users/lbartosik/OneDrive - PEPCO/Pulpit/chromedriver.exe");
+        this.driver = new ChromeDriver();
     }
+
     public void openPage(String url){
+//        this.driver = new ChromeDriver();
         driver.get(url);
     }
 

@@ -15,11 +15,20 @@
 
   Feature: Testing sauce
 
-    Scenario: Testing login
-      Given I open login form
+    Scenario: Testing login add product and checkout
+      When I open login form
       When I give credentials
-
-    Scenario: Testing product add
-      Given I test adding product
       When I add product
+##      When I add product
       Then Product must be in cart
+
+
+
+#Feature: Testing sauce
+#
+#  Scenario: Testing login add product and checkout
+#    Given I open login form
+#    When I give credentials
+#    Given I add product
+##      When I add product
+#    Then Product must be in cart

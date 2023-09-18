@@ -6,12 +6,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class TestingProduct extends General {
     public static final By LoginNameSelector= By.id("user-name");
-    public static final By PasswordSelector= By.id("password");
+    public static final By PasswordSelector= By.id("password"); //Usunac mozna i metody tez
 
     public static final By ButtonSelectorLogin = By.id("login-button");
 
     public static final By AddButton=By.id("add-to-cart-sauce-labs-backpack");
-    public static final By CartSelector=By.id("shopping_cart_badge");
+    public static final By CartSelector=By.className("shopping_cart_badge");
 
 
 
