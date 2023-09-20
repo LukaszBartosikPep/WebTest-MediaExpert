@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 @Component
 
 public class TxtInfo {
-    @Autowired
     LoginAccess loginAccess;
     public String data;
     public List<LoginAccess> loginAccessList=new ArrayList<>();

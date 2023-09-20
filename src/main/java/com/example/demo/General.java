@@ -3,15 +3,32 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class General {
 
 
     public WebDriver driver;
+
     public General (){
-        System.setProperty("webdriver.chrome.driver", "C:/Users/lbartosik/OneDrive - PEPCO/Pulpit/chromedriver.exe");
-        this.driver = new ChromeDriver();
+        System.setProperty("webdriver.chrome.driver", "config/webdrivers/chromedriver.exe");
+        ChromeOptions options = customizeCapabilities(new DesiredCapabilities());
+        options.addArguments("start-maximized");
+        options.addArguments("--disable-gpu");
+        options.addArguments("enable-automation");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-browser-side-navigation");
+        options.addArguments("--remote-allow-origins=*");
+        this.driver = new ChromeDriver(options);
+    }
+
+    private static ChromeOptions customizeCapabilities(DesiredCapabilities cap) {
+        cap.setJavascriptEnabled(true);
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.merge(cap);
+        return chromeOptions;
     }
 
     public void openPage(String url){
