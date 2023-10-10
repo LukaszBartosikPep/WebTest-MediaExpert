@@ -17,7 +17,7 @@
 
     Scenario: Testing login add product and checkout
       When I open login form
-      When I give credentials
+      Then I give credentials
       When I add product
 ##      When I add product
       Then Product must be in cart

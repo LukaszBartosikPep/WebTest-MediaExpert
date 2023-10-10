@@ -14,7 +14,10 @@ public class TestingLogin extends General {
     public static final By TextValue=By.className("app_logo");
 
 
-
+//public TestingLogin(){
+//
+//    WD();
+//}
 
 //    private static final String USERNAME = "standard_user";
 //    private static final String PASSWORD = "secret_sauce";

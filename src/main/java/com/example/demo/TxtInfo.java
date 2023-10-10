@@ -25,8 +25,8 @@ public class TxtInfo {
 //        logger.info("set");
 
         try {
-            String pathData=System.getProperty("PATH");
-            FileInputStream fis = new FileInputStream(pathData); //Sciezka podawana przez konfiguracje
+//            String pathData=System.getProperty("src/main/resources/Data.txt");
+            FileInputStream fis = new FileInputStream("src/main/resources/Data.txt"); //Sciezka podawana przez konfiguracje
             //Tak jakby przez konsole, podawanie argumentów do Javy przez konsole?
             data = IOUtils.toString(fis, "UTF-8");
 
