@@ -65,6 +65,13 @@ public class General{
         driver.getDriver().findElement(valueSelector).sendKeys(value);
 
     }
+
+    public void setupInformation(By Selectorn, By Selectorl, By Selectorz, String name, String lastname, String zip){
+        driver.getDriver().findElement(Selectorn).sendKeys(name);
+        driver.getDriver().findElement(Selectorl).sendKeys(lastname);
+        driver.getDriver().findElement(Selectorz).sendKeys(zip);
+
+    }
     public String retrieveText(By retSelector){
       WebElement  TextValue= driver.getDriver().findElement(retSelector);
       return TextValue.getText();

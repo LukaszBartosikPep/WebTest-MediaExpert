@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 
@@ -28,7 +29,7 @@ public class NewStepsDef {
     TestingProduct testingProduct;  ///szukac w packages
 
 
-
+//    int numberOfItemsBefore;
 
 
 
@@ -52,6 +53,12 @@ public class NewStepsDef {
         testingLogin.Password(returnedAccessList.get(0).getPassword());  //Jezeli druga kombinacja wtedy (1)
         testingLogin.clickLoginButton();
         String correctValue="Swag Labs";
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+//        numberOfItemsBefore=testingLogin.retrieveNumber();
 
     }
 
@@ -60,11 +67,11 @@ public class NewStepsDef {
     public void i_add_product() {
 
 
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(5000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         testingProduct.clickAddProduct();
     }
 //
@@ -74,6 +81,25 @@ public class NewStepsDef {
         int numberOfItemsBefore=0;
         int numberOfItemsAfter=testingProduct.retrieveNumber();
         assertNotEquals(numberOfItemsBefore, numberOfItemsAfter);
+
+    }
+    @When("I do checkout")
+    public void checkout(){
+        testingProduct.clickCart();
+        testingProduct.clickCheckout();
+        String outTitle=testingProduct.retrieveTitle();
+        String correctTitle="Checkout: Your Information";
+        assertEquals(correctTitle, outTitle );
+        testingProduct.giveYourInfo("Edi", "Brock", "90");
+        testingProduct.clickContinue();
+        String secoutTitle= testingProduct.retrieveTitle();
+        String seccorrectTitle="Checkout: Overview";
+        assertEquals(seccorrectTitle,secoutTitle);
+        testingProduct.clickFinish();
+        String thirdTitle= testingProduct.retrieveTitle();
+        String thirdcorrectTitle="Checkout: Complete!";
+        assertEquals(thirdcorrectTitle,thirdTitle);
+
 
     }
 }

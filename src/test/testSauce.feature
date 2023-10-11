@@ -21,6 +21,7 @@
       When I add product
 ##      When I add product
       Then Product must be in cart
+      When I do checkout
 
 
 

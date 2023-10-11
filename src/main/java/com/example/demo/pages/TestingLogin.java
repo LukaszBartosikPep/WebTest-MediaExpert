@@ -12,6 +12,7 @@ public class TestingLogin extends General {
 
     public static final By ButtonSelectorLogin = By.id("login-button");
     public static final By TextValue=By.className("app_logo");
+    public static final By CartSelector=By.className("shopping_cart_link");
 
 
 //public TestingLogin(){
@@ -42,6 +43,11 @@ public class TestingLogin extends General {
 
         String text=retrieveText(TextValue);
         return text;
+    }
+
+    public int retrieveNumber(){
+        int number=retrieveNumber(CartSelector);
+        return number;
     }
 
 //    public String currentAddr(){ //No sense
