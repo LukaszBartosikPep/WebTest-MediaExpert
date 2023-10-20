@@ -7,11 +7,13 @@ import com.example.demo.LoginAccess;
 import com.example.demo.pages.TestingLogin;
 import com.example.demo.pages.TestingProduct;
 import com.example.demo.TxtInfo;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.sql.Driver;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -21,33 +23,38 @@ import static org.junit.Assert.assertNotEquals;
 //@Component
 public class NewStepsDef {
 
+
+
     @Autowired
     TestingLogin testingLogin;
     @Autowired
     TxtInfo txtInfo;
     @Autowired
-    TestingProduct testingProduct;  ///szukac w packages
-
-
-//    int numberOfItemsBefore;
+    TestingProduct testingProduct;
 
 
 
 
-    @Given("I open login form")
+
+
+     @Before
+     @Given("I open login form")
     public void i_test_login_form() {
-//        General general=new General();
-//        general.WD();
-//        DriverWeb driverWeb=new DriverWeb();
-//        driverWeb.Drive();
-//        testingLogin.Driver();
+//
+
+//            System.out.println("is null");
+
+//            testingLogin = new TestingLogin();
+//        }
+
+
         testingLogin.openPage("https://www.saucedemo.com/");
 
     }
     @Then("I give credentials")
     public void i_give_credentials() {
 
-        List<LoginAccess> returnedAccessList =txtInfo.ReturnAccessList();
+        List<LoginAccess> returnedAccessList =txtInfo.ReturnAccessListP();
 
         testingLogin.Name(returnedAccessList.get(0).getName());
         testingLogin.Password(returnedAccessList.get(0).getPassword());  //Jezeli druga kombinacja wtedy (1)
@@ -102,4 +109,18 @@ public class NewStepsDef {
 
 
     }
+    @Then("Browser quit")
+    public void quit(){
+
+        testingLogin.driverClose();
+
+    }
+
+//    @When ("I run driver")
+//    public void runDriver(){
+//
+//        TestingLogin testingLogin=new TestingLogin();
+//    }
+
+
 }

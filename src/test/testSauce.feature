@@ -16,12 +16,38 @@
   Feature: Testing sauce
 
     Scenario: Testing login add product and checkout
+#      When I open login form
+      Then I give credentials
+#      When I add product
+###      When I add product
+#      Then Product must be in cart
+#      When I do checkout
+      Then Browser quit
+
+#  taki sam test case, ale i give credentials als standard user
+#
+#      kolejny scenariusz uruchmianay  2x test casy
+#
+#      zamknac przegladarke anotaccje cucumber
+#
+#
+#      kazdy scenariusz musi byc niezalezny
+#       kolejny scenariusz loguje sie od nowa
+#      problematic user-error  musi sie wysypać
+#      glitch musi przejsc pomimo glitches
+
+
+
+    Scenario: Testing next user
+#      When I run driver
       When I open login form
       Then I give credentials
-      When I add product
-##      When I add product
-      Then Product must be in cart
-      When I do checkout
+#      When I add product
+###      When I add product
+#      Then Product must be in cart
+#      When I do checkout
+
+
 
 
 

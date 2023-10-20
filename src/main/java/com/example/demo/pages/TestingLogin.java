@@ -1,5 +1,6 @@
 package com.example.demo.pages;
 
+import com.example.demo.DriverWeb;
 import com.example.demo.General;
 import org.openqa.selenium.By;
 import org.springframework.context.annotation.Scope;
@@ -55,6 +56,12 @@ public class TestingLogin extends General {
 //            return resultURL;
 //
 //    }
+
+    public void callDriver(){
+        DriverWeb driverWeb=new DriverWeb();
+
+
+    }
 
     }
 

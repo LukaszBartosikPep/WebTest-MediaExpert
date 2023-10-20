@@ -6,20 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.io.IOUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 
 public class TxtInfo {
-    LoginAccess loginAccess;
+//    LoginAccess loginAccess;
     public String data;
     public List<LoginAccess> loginAccessList=new ArrayList<>();
 
 
 //    private static final Logger logger = LoggerFactory.getLogger(TxtInfo.class);
 
-    public List<LoginAccess> ReturnAccessList() {
+    public List<LoginAccess> ReturnAccessListP() {
 
 
 //        logger.info("set");
@@ -33,11 +32,20 @@ public class TxtInfo {
             fis.close();
 
             String[] loginArray = data.split(",");
-            for (int i = 0; i < loginArray.length; i += 2) {
+
+//            for (int i = 0; i < loginArray.length; i++) {
+//                System.out.println(loginArray[i]);
+//            }
+            for (int i = 0; i < loginArray.length; i += 4) {
                 String username = loginArray[i].trim();
                 String password = loginArray[i + 1].trim();
+                String proUsername=loginArray[i+2].trim();
+                String proPassword=loginArray[i+3].trim();
+
                 LoginAccess loginAccess = new LoginAccess(username, password);
+                LoginAccess loginAccessProblemUser = new LoginAccess(proUsername, proPassword);
                 loginAccessList.add(loginAccess);
+                loginAccessList.add(loginAccessProblemUser);
 
             }
             for(LoginAccess element: loginAccessList) {

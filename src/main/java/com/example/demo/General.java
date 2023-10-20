@@ -9,10 +9,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-//import com.example.demo.DriverWeb;
 
 
-@Component
+//@Component
 public class General{
 
 
@@ -60,6 +59,22 @@ public class General{
     }
 
 
+//    public WebDriver getDriver(){
+//        return driver.getDriver();
+//
+//        driver.getDriver==null check  //tutaj nie, wchodzi w DriverWeb i wtedy sprawdza.
+//        //
+//
+//
+//    }
+
+
+
+//    public String tested(){
+//         String test=null;
+//        return test;
+//    }
+
 
     public void setupField(By valueSelector, String value){
         driver.getDriver().findElement(valueSelector).sendKeys(value);
@@ -93,4 +108,10 @@ public class General{
 //        WebDriverWait wait = new WebDriverWait(driver, 10); // Wait for up to 10 seconds
 //        wait.until(ExpectedConditions.jsReturnsValue("return document.readyState === 'complete'"));
 //    }
+
+    public void driverClose(){
+
+        driver.getDriver().close();
+
+    }
 }
