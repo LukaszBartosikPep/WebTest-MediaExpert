@@ -15,14 +15,14 @@
 
   Feature: Testing sauce
 
-    Scenario: Testing login add product and checkout
-#      When I open login form
-      Then I give credentials
-#      When I add product
-###      When I add product
-#      Then Product must be in cart
-#      When I do checkout
-      Then Browser quit
+#    Scenario: Testing login add product and checkout
+##      When I open login form
+#      Then I give credentials
+##      When I add product
+####      When I add product
+##      Then Product must be in cart
+##      When I do checkout
+#      Then Browser quit
 
 #  taki sam test case, ale i give credentials als standard user
 #
@@ -38,10 +38,10 @@
 
 
 
-    Scenario: Testing next user
-#      When I run driver
-      When I open login form
-      Then I give credentials
+#    Scenario: Testing next user
+##      When I run driver
+#      When I open login form
+#      Then I give credentials
 #      When I add product
 ###      When I add product
 #      Then Product must be in cart
@@ -49,13 +49,28 @@
 
 
 
+#    Scenario: Testing menu
+#      When I open login form
+#      Then I give credentials
+#      Then I click menu button
+#      Then If menu is visible
+#      Then I do redirection
+
+    Scenario: testing glitch user
+      When I open login form
+      Given I give credentials "performance_glitch_user" "secret_sauce"
+      When I add product
+      Then Product must be in cart
+      When I do checkout
+
+      Scenario: Check if removing works
+        When I open login form
+        Given I give credentials "performance_glitch_user" "secret_sauce"
+        When I add product
+        Then I remove product
 
 
-#Feature: Testing sauce
-#
-#  Scenario: Testing login add product and checkout
-#    Given I open login form
-#    When I give credentials
-#    Given I add product
-##      When I add product
-#    Then Product must be in cart
+
+
+
+

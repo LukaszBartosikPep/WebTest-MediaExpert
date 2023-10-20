@@ -80,6 +80,12 @@ public class General{
         driver.getDriver().findElement(valueSelector).sendKeys(value);
 
     }
+    public void testMenu(By menuSelector){
+
+
+
+
+    }
 
     public void setupInformation(By Selectorn, By Selectorl, By Selectorz, String name, String lastname, String zip){
         driver.getDriver().findElement(Selectorn).sendKeys(name);
@@ -102,6 +108,12 @@ public class General{
     public String currentURL(){
 
         return driver.getDriver().getCurrentUrl(); //lepiej bez zmiennej
+    }
+    public WebElement checkIfMenuVisible(By menuSelector){
+
+        WebElement  menu= driver.getDriver().findElement(menuSelector);
+
+        return menu;
     }
 
 //    public void waitForPageToLoad() {
