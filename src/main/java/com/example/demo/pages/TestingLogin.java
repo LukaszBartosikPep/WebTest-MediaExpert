@@ -16,18 +16,7 @@ public class TestingLogin extends General {
     public static final By CartSelector=By.className("shopping_cart_link");
 
 
-//public TestingLogin(){
 //
-//    WD();
-//}
-
-//    private static final String USERNAME = "standard_user";
-//    private static final String PASSWORD = "secret_sauce";
-
-
-//    public void openPage(String url){  //No sense
-//        super.openPage(url);
-//    }
     public void Name(String NAME) {
         super.setupField(LoginNameSelector, NAME);
     }
@@ -40,28 +29,19 @@ public class TestingLogin extends General {
 
     }
 
-    public String retrieveText(){
-
-        String text=retrieveText(TextValue);
-        return text;
-    }
-
-    public int retrieveNumber(){
-        int number=retrieveNumber(CartSelector);
-        return number;
-    }
-
-//    public String currentAddr(){ //No sense
-//            String resultURL=currentURL();
-//            return resultURL;
+//    public String retrieveText(){
 //
+//        String text=retrieveText(TextValue);
+//        return text;
+//    }
+//
+//    public int retrieveNumber(){
+//        int number=retrieveNumber(CartSelector);
+//        return number;
 //    }
 
-    public void callDriver(){
-        DriverWeb driverWeb=new DriverWeb();
 
 
-    }
 
     }
 

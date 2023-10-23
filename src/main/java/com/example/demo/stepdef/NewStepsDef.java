@@ -42,22 +42,19 @@ public class NewStepsDef {
     public void i_test_login_form() {
 //
 
-//            System.out.println("is null");
 
-//            testingLogin = new TestingLogin();
-//        }
 
 
         testingLogin.openPage("https://www.saucedemo.com/");
 
     }
-    @Given("I give credentials {string} {string}")
+    @Then("I give credentials {string} {string}")
     public void i_give_credentials(String name, String pass ) {
 
-//        List<LoginAccess> returnedAccessList =txtInfo.ReturnAccessListP();
-////
-//        testingLogin.Name(returnedAccessList.get(1).getName());
-//        testingLogin.Password(returnedAccessList.get(1).getPassword());
+        List<LoginAccess> returnedAccessList =txtInfo.ReturnAccessListP();
+//
+//        testingLogin.Name(returnedAccessList.get(0).getName());
+//        testingLogin.Password(returnedAccessList.get(0).getPassword());
         testingLogin.Name(name);
         testingLogin.Password(pass);
         testingLogin.clickLoginButton();
@@ -67,7 +64,7 @@ public class NewStepsDef {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-//        numberOfItemsBefore=testingLogin.retrieveNumber();
+
 
     }
 
@@ -76,24 +73,29 @@ public class NewStepsDef {
     public void i_add_product() {
 
 
-//        try {
-//            Thread.sleep(5000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
+
         testingProduct.clickAddProduct();
     }
 //
    @Then("I remove product")
    public void remove(){
         testingProduct.clickRemoveProduct();
+       boolean badgeIsVisible= testingProduct.checkIfBadgeVisible();
+       assertFalse(badgeIsVisible);
+
 
    }
+    @Then("If menu is visible")
+    public void menuVisible(){
+        boolean isVisible= testingProduct.checkIfMenuVisible();
+        assertTrue(isVisible);
+
+    }
     @Then("Product must be in cart")
     public void product_must_be_in_cart() {
-        int numberOfItemsBefore=0;
-        int numberOfItemsAfter=testingProduct.retrieveNumber();
-        assertNotEquals(numberOfItemsBefore, numberOfItemsAfter);
+        int numberOfItemsBeforeAdding=0;
+        int numberOfItemsAfterAdding=testingProduct.retrieveNumber();
+        assertNotEquals(numberOfItemsBeforeAdding, numberOfItemsAfterAdding);
 
     }
     @When("I click menu button")
@@ -102,15 +104,15 @@ public class NewStepsDef {
 
     }
 
-    @Then("If menu is visible")
-    public void menuVisible(){
-        boolean isVisible= testingProduct.checkIfMenuVisible();
-        assertTrue(isVisible);
 
-    }
     @When("I do redirection")
     public void checkRedirection(){
-
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+//        testingProduct.waitForPageToLoad();
          testingProduct.clickAbout();
          String currentURL=testingProduct.checkNewURL();
          assertEquals("https://saucelabs.com/",currentURL);

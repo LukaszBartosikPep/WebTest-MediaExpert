@@ -42,8 +42,8 @@ public class DriverWeb {
             RunDriver();
 
         }
-        //tutaj dac check
-        return driver;    //jezeli zamkniety to otworzyc
+
+        return driver;
     }
     private boolean isDriverActive() {
         try {
@@ -51,7 +51,7 @@ public class DriverWeb {
             driver.getCurrentUrl();
             return true;
         } catch (Exception e) {
-            return false; // If it fails, the driver is not active
+            return false;
         }
     }
 

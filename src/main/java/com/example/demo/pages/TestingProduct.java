@@ -5,6 +5,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class TestingProduct extends General {
     public static final By LoginNameSelector= By.id("user-name");
@@ -19,6 +21,8 @@ public class TestingProduct extends General {
     public static final By CartSelector=By.className("shopping_cart_badge");
 
     public static final By MenuButton=By.className("bm-menu-wrap");
+
+    public static final By CartBadge=By.className("shopping_cart_badge");
     public static final By CartAccess=By.id("shopping_cart_container");
     public static final By Continue=By.id("continue");
     public static final By NameSel=By.id("first-name");
@@ -33,13 +37,13 @@ public class TestingProduct extends General {
 
 
 
-    public void Name(String NAME) {
-        super.setupField(LoginNameSelector, NAME);
-    }
-    //
-    public void Password(String PASSWORD) {
-        super.setupField(PasswordSelector, PASSWORD);
-    }
+//    public void Name(String NAME) {
+//        super.setupField(LoginNameSelector, NAME);
+//    }
+//    //
+//    public void Password(String PASSWORD) {
+//        super.setupField(PasswordSelector, PASSWORD);
+//    }
     public void clickCheckout() {
         super.clickBySelector(ButtonCheckout);
 
@@ -78,9 +82,20 @@ public class TestingProduct extends General {
 
     }
     public boolean checkIfMenuVisible(){
-        WebElement menu=checkIfMenuVisible(MenuButton);
+        WebElement menu= retrieveSingleElement(MenuButton);
 
         if(menu.isDisplayed()){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public boolean checkIfBadgeVisible(){
+        List<WebElement> badge= retrieveElementList(CartBadge);
+//        String badgeText=badge.getText();
+        if(!badge.isEmpty()){
             return true;
         }
         else {
