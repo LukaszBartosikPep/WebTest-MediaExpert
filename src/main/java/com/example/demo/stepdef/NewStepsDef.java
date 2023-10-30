@@ -37,15 +37,15 @@ public class NewStepsDef {
 
 
 
-     @Before
-     @Given("I open login form")
+    @Before
+    @Given("I open login form")
     public void i_test_login_form() {
 //
 
 
 
 
-        testingLogin.openPage("https://www.saucedemo.com/");
+        testingLogin.openPage("https://www.mediaexpert.pl/");
 
     }
     @Then("I give credentials {string} {string}")
@@ -55,100 +55,24 @@ public class NewStepsDef {
 //
 //        testingLogin.Name(returnedAccessList.get(0).getName());
 //        testingLogin.Password(returnedAccessList.get(0).getPassword());
-        testingLogin.Name(name);
-        testingLogin.Password(pass);
-        testingLogin.clickLoginButton();
-        String correctValue="Swag Labs";
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
-
-    @When("I add product")
-    public void i_add_product() {
-
-
-
-        testingProduct.clickAddProduct();
-    }
-//
-   @Then("I remove product")
-   public void remove(){
-        testingProduct.clickRemoveProduct();
-       boolean badgeIsVisible= testingProduct.checkIfBadgeVisible();
-       assertFalse(badgeIsVisible);
-
-
-   }
-    @Then("If menu is visible")
-    public void menuVisible(){
-        boolean isVisible= testingProduct.checkIfMenuVisible();
-        assertTrue(isVisible);
-
-    }
-    @Then("Product must be in cart")
-    public void product_must_be_in_cart() {
-        int numberOfItemsBeforeAdding=0;
-        int numberOfItemsAfterAdding=testingProduct.retrieveNumber();
-        assertNotEquals(numberOfItemsBeforeAdding, numberOfItemsAfterAdding);
-
-    }
-    @When("I click menu button")
-    public void testMenu(){
-        testingProduct.clickMenu();
-
-    }
-
-
-    @When("I do redirection")
-    public void checkRedirection(){
+//        testingLogin.Name(name);
+//        testingLogin.Password(pass);
+//        testingLogin.clickLoginButton();
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-//        testingProduct.waitForPageToLoad();
-         testingProduct.clickAbout();
-         String currentURL=testingProduct.checkNewURL();
-         assertEquals("https://saucelabs.com/",currentURL);
-    }
+        testingLogin.clickIfAccept();
+        testingLogin.clickGenLogin();
+        testingLogin.setLogin(name);
+        testingLogin.setPassword(pass);
 
-    @When("I do checkout")
-    public void checkout(){
-        testingProduct.clickCart();
-        testingProduct.clickCheckout();
-        String outTitle=testingProduct.retrieveTitle();
-        String correctTitle="Checkout: Your Information";
-        assertEquals(correctTitle, outTitle );
-        testingProduct.giveYourInfo("Edi", "Brock", "90");
-        testingProduct.clickContinue();
-        String secoutTitle= testingProduct.retrieveTitle();
-        String seccorrectTitle="Checkout: Overview";
-        assertEquals(seccorrectTitle,secoutTitle);
-        testingProduct.clickFinish();
-        String thirdTitle= testingProduct.retrieveTitle();
-        String thirdcorrectTitle="Checkout: Complete!";
-        assertEquals(thirdcorrectTitle,thirdTitle);
 
 
     }
-    @Then("Browser quit")
-    public void quit(){
 
-        testingLogin.driverClose();
 
-    }
-
-//    @When ("I run driver")
-//    public void runDriver(){
-//
-//        TestingLogin testingLogin=new TestingLogin();
-//    }
 
 
 }
