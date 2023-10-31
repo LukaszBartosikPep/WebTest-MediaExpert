@@ -1,10 +1,8 @@
 package com.example.demo.pages;
 
-import com.example.demo.DriverWeb;
 import com.example.demo.General;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -13,11 +11,15 @@ import java.util.List;
 public class TestingLogin extends General {
 
     public static final By generalLogin=By.xpath("//*[text()='Moje konto']");
+
+    public static final By logout=By.xpath("//*[text()='Wyloguj']");
     public static final By accept=By.id("onetrust-accept-btn-handler");
 
-    public static final By emailType=By.cssSelector("input[type='email']");
+    public static final By emailTypeIn =By.cssSelector("input[type='email']");
 
-    public static final By passType=By.cssSelector("input[type='password']");
+
+    public static final By passTypeIn =By.cssSelector("input[type='password']");
+    public static final By clickLocator =By.cssSelector(".spark-button.submit.is-primary.is-default.icon-left");
 //    public static final By visibility=By.id("onetrust-accept-btn-handler");
 
 
@@ -32,14 +34,24 @@ public class TestingLogin extends General {
             super.click(accept);
         }
     }
+    public void clickLogin(){
 
+        super.click(clickLocator);
+    }
     public void setLogin(String email){
 
-        super.setField(emailType,email);
+        super.setField(emailTypeIn,email);
     }
     public void setPassword(String password){
 
-        super.setField(passType,password);
+        super.setField(passTypeIn,password);
+    }
+
+    public void logoutClose(){
+        super.click(logout);
+        super.Close();
+
+
     }
 }
 

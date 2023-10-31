@@ -39,5 +39,12 @@ public class General {
 
         driver.getDriver().findElement(fieldName).sendKeys(value);
     }
+    public String getURL(){
+       String url= driver.getDriver().getCurrentUrl();
 
+       return url;
+    }
+    public void Close(){
+        driver.getDriver().close();
+    }
 }

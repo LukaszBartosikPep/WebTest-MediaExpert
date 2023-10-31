@@ -23,6 +23,7 @@ public class DriverWeb {
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
             options.addArguments("--disable-browser-side-navigation");
+            options.addArguments("--disable-notifications");
             options.addArguments("--remote-allow-origins=*");
             this.driver = new ChromeDriver(options);
         }
