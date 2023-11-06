@@ -12,6 +12,8 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.junit.Assert;
+import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Driver;
@@ -38,7 +40,7 @@ public class NewStepsDef {
 
 
     @Before
-    @Given("I open login form")
+    @Given("I open page")
     public void i_test_login_form() {
 //
 
@@ -46,6 +48,7 @@ public class NewStepsDef {
 
 
         testingLogin.openPage("https://www.mediaexpert.pl/");
+        testingLogin.clickIfAccept();
 
     }
     @Then("I give credentials {string} {string}")
@@ -63,7 +66,7 @@ public class NewStepsDef {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        testingLogin.clickIfAccept();
+
         testingLogin.clickGenLogin();
         testingLogin.setLogin(name);
         testingLogin.setPassword(pass);
@@ -100,10 +103,16 @@ public class NewStepsDef {
             testingProduct.goToMainPage("https://www.mediaexpert.pl/");
         }
 
-        @When("I type product name")
-        public void i_type_product_name() {
+        @When("I type product name {string}")
+        public void i_type_product_name(String product) {
             // Write code here that turns the phrase above into concrete actions
-
+            testingProduct.clickSearchBar();
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            testingProduct.typeProduct(product);
         }
 
         @When("I click search")
@@ -114,15 +123,20 @@ public class NewStepsDef {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            testingProduct.clickSearchBar();
-            testingProduct.typeProduct("UPS");
-            testingProduct.clickSearch();
+//
+//            testingProduct.typeProduct("UPS");
+
+            testingProduct.clickSearchButton();
+//            testingProduct.clickTab();
+//            WebElement bar=testingProduct.test();
+//            assertTrue(bar.isDisplayed());
         }
 
-        @Then("Product list must be valid")
-        public void product_list_must_be_valid() {
+        @Then("Product list must be valid {string}")
+        public void product_list_must_be_valid(String expected) {
             // Write code here that turns the phrase above into concrete actions
-
+            String searchResult=testingProduct.checkResult();
+            assertEquals(expected, searchResult);
         }
 
 

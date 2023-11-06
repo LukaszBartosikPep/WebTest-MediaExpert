@@ -26,8 +26,8 @@ public class General {
         driver.getDriver().findElement(clickSelector).click();
     }
 
-    public void getElement(By selector){
-        driver.getDriver().findElement(selector);
+    public WebElement getElement(By selector){
+        return driver.getDriver().findElement(selector);
     }
 
     public List<WebElement> ifVisible(By visibleSelector){
