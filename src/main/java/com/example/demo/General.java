@@ -1,6 +1,8 @@
 package com.example.demo;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -47,4 +49,20 @@ public class General {
     public void Close(){
         driver.getDriver().close();
     }
+
+
+    public void Action(By elementName) {
+    Actions action=new Actions (driver.getDriver());
+    WebElement element=driver.getDriver().findElement(elementName);
+    action.moveToElement(element).perform();
+    }
+    public int windowSize(){
+        driver.getDriver().manage().window().maximize();
+        Dimension screenSize=driver.getDriver().manage().window().getSize();
+        int width=screenSize.getWidth();
+        return width;
+    }
+
+
+
 }

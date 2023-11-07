@@ -15,9 +15,15 @@ public class TestingProduct extends General {
     public static final By menuButton=By.className("menu-button");
 
     public static final By searchResult=By.xpath("//div[@id='section_list-filters']/h1/span/span[2]");
+    public static final By produktyButton=By.cssSelector("label[class='menu-button']");
+
+    public static final By gamingSearchResult=By.cssSelector("h1.list-name.is-title");
 
 
-    public static final By kompTab =By.xpath("//a[@href='/komputery-i-tablety']");
+
+    public static final By kompTab =By.xpath("//li//a[@href='/komputery-i-tablety']");
+
+    public static final By monitoryGamingowe=By.xpath("//div[@class='group-links']//a[@href='/komputery-i-tablety/monitory-led/monitory-gamingowe']");
 
 
 
@@ -52,5 +58,28 @@ public class TestingProduct extends General {
           System.out.println(resultText);
             return resultText;
         }
+        public String checkGamingResult(){
+            WebElement gamingResult=super.getElement(gamingSearchResult);
+            String gamingGetText=gamingResult.getText();
+            return gamingGetText;
+        }
+        public void clickProdukty(){
+            super.click(produktyButton);
+        }
+        public void hoverOverKompTab(){
+            super.Action(kompTab);
+        }
+        final int breakWidth=1250;
+        public void hoverOverProdukty(){
+            int width=super.windowSize();
+            if(width<breakWidth) {
+
+                super.Action(produktyButton);
+            }
+        }
+        public void clickGamingowe(){
+            super.click(monitoryGamingowe);
+        }
+
 
 }

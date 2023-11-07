@@ -25,6 +25,7 @@ public class DriverWeb {
             options.addArguments("--disable-browser-side-navigation");
             options.addArguments("--disable-notifications");
             options.addArguments("--remote-allow-origins=*");
+//            options.addArguments("--window-position=2400,0");
             this.driver = new ChromeDriver(options);
         }
 

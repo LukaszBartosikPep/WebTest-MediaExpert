@@ -1,22 +1,16 @@
 package com.example.demo.stepdef;
 
 //import com.example.demo.General;
-import com.example.demo.DriverWeb;
-import com.example.demo.General;
 import com.example.demo.LoginAccess;
 import com.example.demo.pages.TestingLogin;
 import com.example.demo.pages.TestingProduct;
 import com.example.demo.TxtInfo;
 import cucumber.api.java.Before;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.junit.Assert;
-import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.sql.Driver;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -138,6 +132,38 @@ public class NewStepsDef {
             String searchResult=testingProduct.checkResult();
             assertEquals(expected, searchResult);
         }
+    @When("I click on product button")
+    public void i_click_on_product_button() {
+        // Write code here that turns the phrase above into concrete actions
+        testingProduct.hoverOverProdukty();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        testingProduct.clickProdukty();
+//        testingProduct.clickProdukty();
+
+    }
+
+    @When("I chose the subcategory")
+    public void i_chose_the_subcategory() {
+        // Write code here that turns the phrase above into concrete actions
+        testingProduct.hoverOverKompTab();
+        testingProduct.clickGamingowe();
+
+    }
+
+    @Then("Given list of product must be visible {string}")
+    public void given_list_of_product_must_be_visible(String expectedGamingResult) {
+        // Write code here that turns the phrase above into concrete actions
+        String gamingResult=testingProduct.checkGamingResult();
+        assertEquals(expectedGamingResult, gamingResult);
+
+
+
+    }
 
 
 }

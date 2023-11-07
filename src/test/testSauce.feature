@@ -25,7 +25,7 @@ Feature: Testing sauce
     When I click on product button
     #Depends on the windows size, this option must be implemented
     When I chose the subcategory
-    Then Given list of product must be visible
+    Then Given list of product must be visible "Monitory gamingowe"
 
 
 
