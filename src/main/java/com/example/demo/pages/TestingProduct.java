@@ -30,10 +30,10 @@ public class TestingProduct extends General {
 
 
 
-        public void goToMainPage(String url){
-
-            super.openPage(url);
-        }
+//        public void goToMainPage(String url){
+//
+//            super.openPage(url);
+//        }
         public WebElement test(){
 
                 WebElement bar=super.getElement(menuButton);

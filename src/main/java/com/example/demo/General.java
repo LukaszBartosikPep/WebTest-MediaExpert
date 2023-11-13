@@ -1,6 +1,7 @@
 package com.example.demo;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,14 @@ public class General {
     public void click(By clickSelector){
 
         driver.getDriver().findElement(clickSelector).click();
+    }
+    public List<WebElement> clickList(By itemsSelector){
+        List <WebElement> items= driver.getDriver().findElements(itemsSelector);
+        return items;
+    }
+    public void scrollDown(){
+        JavascriptExecutor js=(JavascriptExecutor) driver.getDriver();
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 
     public WebElement getElement(By selector){

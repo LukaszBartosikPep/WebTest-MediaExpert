@@ -5,11 +5,13 @@ import com.example.demo.LoginAccess;
 import com.example.demo.pages.TestingLogin;
 import com.example.demo.pages.TestingProduct;
 import com.example.demo.TxtInfo;
+//import com.example.demo.pages.TestingTransaction;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -28,12 +30,15 @@ public class NewStepsDef {
     @Autowired
     TestingProduct testingProduct;
 
+//    @Autowired
+//    TestingTransaction testingTransaction;
 
 
 
 
 
-    @Before
+
+
     @Given("I open page")
     public void i_test_login_form() {
 //
@@ -42,6 +47,11 @@ public class NewStepsDef {
 
 
         testingLogin.openPage("https://www.mediaexpert.pl/");
+        try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         testingLogin.clickIfAccept();
 
     }
@@ -91,11 +101,11 @@ public class NewStepsDef {
             testingLogin.logoutClose();
 
                 }
-        @When("I go to main page")
-        public void i_go_to_main_page() {
-            // Write code here that turns the phrase above into concrete actions
-            testingProduct.goToMainPage("https://www.mediaexpert.pl/");
-        }
+//        @When("I go to main page")
+//        public void i_go_to_main_page() {
+//            // Write code here that turns the phrase above into concrete actions
+//            testingProduct.goToMainPage("https://www.mediaexpert.pl/");
+//        }
 
         @When("I type product name {string}")
         public void i_type_product_name(String product) {
@@ -141,6 +151,7 @@ public class NewStepsDef {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        //await!
 
         testingProduct.clickProdukty();
 //        testingProduct.clickProdukty();
@@ -164,6 +175,7 @@ public class NewStepsDef {
 
 
     }
-
+//
+//
 
 }
