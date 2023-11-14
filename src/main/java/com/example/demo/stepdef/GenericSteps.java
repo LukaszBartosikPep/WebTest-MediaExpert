@@ -36,6 +36,12 @@ public class GenericSteps {
         // Write code here that turns the phrase above into concrete actions
 
         testingTransaction.scrollDown();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        testingTransaction.scrollTop();
         testingTransaction.putToCart(numberOfProducts);
 
 

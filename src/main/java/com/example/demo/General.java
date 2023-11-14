@@ -34,7 +34,12 @@ public class General {
     }
     public void scrollDown(){
         JavascriptExecutor js=(JavascriptExecutor) driver.getDriver();
-        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+        js.executeScript("window.scroll({top:30000, behavior:'smooth'});");
+
+    }
+    public void scrollTop(){
+        JavascriptExecutor js=(JavascriptExecutor) driver.getDriver();
+        js.executeScript("window.scrollTo(0,0)");
     }
 
     public WebElement getElement(By selector){

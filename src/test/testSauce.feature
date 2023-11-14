@@ -31,7 +31,7 @@ Feature: Testing sauce
       When I open page
       When I type product name "Technics"
       When I click search
-      When I add product to cart 2
+      When I add product to cart 10
 #      Then Products must be visible
 
 
