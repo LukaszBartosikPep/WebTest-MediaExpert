@@ -29,7 +29,7 @@ public class GenericSteps {
     TestingTransaction testingTransaction;
 
 
-
+    private int numberOfProducts;
 
     @When("I add product to cart {int}")
     public void i_add_product_to_cart(int numberOfProducts) {
@@ -43,13 +43,15 @@ public class GenericSteps {
         }
         testingTransaction.scrollTop();
         testingTransaction.putToCart(numberOfProducts);
-
-
+        testingTransaction.numberOfItemsInCart();
+        this.numberOfProducts=numberOfProducts;
     }
 
     @Then("Products must be visible")
     public void products_must_be_visible() {
         // Write code here that turns the phrase above into concrete actions
+       String actualNumberOfitems=testingTransaction.numberOfItemsInCart();
+        assertEquals(numberOfProducts, actualNumberOfitems);
 
     }
 //

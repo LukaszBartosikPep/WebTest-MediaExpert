@@ -117,11 +117,7 @@ public class NewStepsDef {
                 e.printStackTrace();
             }
             testingProduct.typeProduct(product);
-        }
 
-        @When("I click search")
-        public void i_click_search() {
-            // Write code here that turns the phrase above into concrete actions
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
@@ -131,10 +127,24 @@ public class NewStepsDef {
 //            testingProduct.typeProduct("UPS");
 
             testingProduct.clickSearchButton();
-//            testingProduct.clickTab();
-//            WebElement bar=testingProduct.test();
-//            assertTrue(bar.isDisplayed());
         }
+
+//        @When("I click search")
+//        public void i_click_search() {
+//            // Write code here that turns the phrase above into concrete actions
+//            try {
+//                Thread.sleep(2000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+////
+////            testingProduct.typeProduct("UPS");
+//
+//            testingProduct.clickSearchButton();
+////            testingProduct.clickTab();
+////            WebElement bar=testingProduct.test();
+////            assertTrue(bar.isDisplayed());
+//        }
 
         @Then("Product list must be valid {string}")
         public void product_list_must_be_valid(String expected) {

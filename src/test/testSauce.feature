@@ -29,9 +29,8 @@ Feature: Testing sauce
 #    Then Given list of product must be visible "Monitory gamingowe"
     Scenario: Testing cart
       When I open page
-      When I type product name "Technics"
-      When I click search
-      When I add product to cart 10
+      When I type product name "Sony"
+      When I add product to cart 2
 #      Then Products must be visible
 
 

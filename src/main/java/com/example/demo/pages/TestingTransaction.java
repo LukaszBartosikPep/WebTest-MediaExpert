@@ -17,33 +17,43 @@ public class TestingTransaction extends General {
     DriverWeb driver;
 
 
-//    public static final By buttonChild=By.xpath("//button[@class='spark-button add-button add-to-cart is-primary is-primary is-medium icon-left is-new-loading is-hydrated']");
+
       public static final By buttonChild=By.xpath("//div[@class='buttons-wrapper']//button[@class='spark-button add-button add-to-cart is-primary is-primary is-medium icon-left is-new-loading is-hydrated']");
       public static final By goBack=By.xpath("//*[@id=\"spark\"]/div[3]/div[2]/div/div[2]/div[3]/div/button/span/span");
+      public static final By cartLocator=By.xpath("//*[@id=\"section_header-desktop\"]/div/div/div[3]/div[4]/div/span");
+
     public void putToCart(int numberOfItems){
 
 
 
 
 
-//        for(int i=0; i<numberOfItems;i++) {
-////            final By buttonChild = By.xpath("//div[@class='list-items']//div[@class='offers-list']//button[@class='spark-button wishlist wishlist is-desktop is-button-link is-default icon-left is-icon is-new-loading is-show-list'][" + numberOfItems + "]");
-//
+
+
             List<WebElement> items=super.clickList(buttonChild);
         for(int i=0; i<numberOfItems;i++) {
                 items.get(i).click();
 
-            //wait
+
             driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                 super.click(goBack);
-            //wait
+
             driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             }
-//        items.get(2).click();
+//
             System.out.println(items);
         }
         public void timeOut(){
             driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+
+        }
+
+        public String numberOfItemsInCart(){
+            WebElement cart= super.getElement(cartLocator);
+            String cartContainer=cart.getText();
+            System.out.println(cartContainer);
+            return cartContainer;
 
 
         }
