@@ -7,6 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 //@Component
@@ -22,6 +23,7 @@ public class General {
     public void openPage(String url) {
 
         driver.getDriver().get(url);
+        driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     public void click(By clickSelector){

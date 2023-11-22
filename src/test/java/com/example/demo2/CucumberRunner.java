@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test"},
         glue= {"com.example.demo.stepdef"},
-        tags={"@BuyingWithoutLogin"}
+        tags={"@BuyingUntilLogin"}
 )
 public class CucumberRunner {
 }

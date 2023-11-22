@@ -30,10 +30,10 @@ public class TestingTransaction extends General {
                 items.get(i).click();
 
 
-            driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
                 super.click(goBack);
 
-            driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
             }
 //
             System.out.println(items);
