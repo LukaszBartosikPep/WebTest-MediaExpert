@@ -25,12 +25,7 @@ public class TestingTransaction extends General {
     public void putToCart(int numberOfItems){
 
 
-
-
-
-
-
-            List<WebElement> items=super.clickList(buttonChild);
+        List<WebElement> items=super.clickList(buttonChild);
         for(int i=0; i<numberOfItems;i++) {
                 items.get(i).click();
 

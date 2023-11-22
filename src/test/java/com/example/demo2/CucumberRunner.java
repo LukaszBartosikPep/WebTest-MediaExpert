@@ -7,8 +7,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test",
-        glue= "com.example.demo.stepdef"
+        features = {"src/test"},
+        glue= {"com.example.demo.stepdef"},
+        tags={"@BuyingWithoutLogin"}
 )
 public class CucumberRunner {
 }
