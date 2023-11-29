@@ -22,6 +22,11 @@ public class TestingTransaction extends General {
       public static final By goBack=By.xpath("//*[@id=\"spark\"]/div[3]/div[2]/div/div[2]/div[3]/div/button/span/span");
       public static final By cartLocator=By.xpath("//*[@id=\"section_header-desktop\"]/div/div/div[3]/div[4]/div/span");
 
+      public static final By PostalCode=By.xpath("//div[@class='dialog-body']//input[1]");
+
+    //div[@class='dialog-body']//input[1]
+
+
     public void putToCart(int numberOfItems){
 
 
