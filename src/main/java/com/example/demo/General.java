@@ -1,9 +1,10 @@
 package com.example.demo;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+//import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -39,11 +40,18 @@ public class General {
         js.executeScript("window.scroll({top:30000, behavior:'smooth'});");
 
     }
+    public void scrollToData(){
+        JavascriptExecutor js=(JavascriptExecutor) driver.getDriver();
+        js.executeScript("window.scroll({top:600});");
+    }
     public void scrollTop(){
         JavascriptExecutor js=(JavascriptExecutor) driver.getDriver();
         js.executeScript("window.scrollTo(0,0)");
     }
-
+    public void explicitWait(By selector){
+        WebDriverWait wait= new WebDriverWait(driver.getDriver(),10);
+        WebElement forWait=wait.until(ExpectedConditions.elementToBeClickable(selector));
+    }
     public WebElement getElement(By selector){
         return driver.getDriver().findElement(selector);
     }

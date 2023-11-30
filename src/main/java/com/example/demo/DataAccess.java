@@ -13,6 +13,7 @@ public class DataAccess {
     public String postalCode;
     public String data;
     public String[] dataArray;
+    public String shopAddress;
 
 
 //    public DataAccess(String postalCode){
@@ -39,10 +40,22 @@ public class DataAccess {
     }
 
     public String returnPostalCode() {
-        for(int i=0;i< dataArray.length;i+=2){
+        for(int i=0;i< dataArray.length;i+=dataArray.length){
             postalCode=dataArray[i];
         }
         return postalCode;
+    }
+    public String returnShopAddress(){
+        for(int i=0;i< dataArray.length;i+=dataArray.length){
+            shopAddress=dataArray[i+2].trim();
+        }
+        return shopAddress;
+    }
+    public String returnShopPostalCode(){
+        for(int i=0;i< dataArray.length;i+= dataArray.length){
+            shopAddress=dataArray[i+3].trim();
+        }
+        return shopAddress;
     }
 
     //Now do access to the data from a file.

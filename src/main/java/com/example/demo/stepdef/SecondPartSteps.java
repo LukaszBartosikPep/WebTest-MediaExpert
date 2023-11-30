@@ -1,12 +1,15 @@
 package com.example.demo.stepdef;
 
+import com.example.demo.DataAccess;
 import com.example.demo.TxtInfo;
 import com.example.demo.pages.*;
+import cucumber.api.java.bs.A;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalTime;
+import static org.junit.Assert.*;
 
 public class SecondPartSteps {
     @Autowired
@@ -24,6 +27,8 @@ public class SecondPartSteps {
 
     @Autowired
     TestingLocalShop testingLocalShop;
+    @Autowired
+    DataAccess dataAccess;
 
     @And("I check product delivery options")
     public void productDelivery(){
@@ -56,7 +61,17 @@ public class SecondPartSteps {
         testingLocalShop.clickSearchShop();
         testingLocalShop.setAddress();
 //        testingLocalShop.clickSearch();
-//        testingLocalShop.clickSpecificShop();
+        testingLocalShop.clickSpecificShop();
+    }
+    @Then("Shop data must be valid")
+    public void shopDataTest(){
+       String actualAddress =testingLocalShop.returnShopAddress();
+        String validAddress=dataAccess.returnShopAddress();
+        assertEquals(validAddress,actualAddress);
+        String actualPostalCode= testingLocalShop.returnShopPostalCode();
+        String validPostalCoe=dataAccess.returnShopPostalCode();
+        assertEquals(validPostalCoe,actualPostalCode);
+
     }
 
 }

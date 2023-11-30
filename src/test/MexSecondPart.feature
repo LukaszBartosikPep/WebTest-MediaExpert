@@ -21,6 +21,7 @@
     Scenario: TestingLocalShopData
       Given I open page
       Then I search for shop
+     Then Shop data must be valid
 
 
 

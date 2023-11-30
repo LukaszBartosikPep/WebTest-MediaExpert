@@ -1,5 +1,7 @@
 62-800,
-www
+www,
+ul. Górecka 30,
+60-201 Poznań
 
 
 
